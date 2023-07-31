@@ -1,0 +1,77 @@
+
+  ui kit
+
+  <button appThemeToggle class="text-[red]">Переключити тему</button>
+
+  <div class="flex flex-col justify-center items-center">
+    <div class="flex justify-center w-full my-10">
+      <button class="ui-prmory-button m-10">
+        🠈
+      </button>
+
+      <button class="ui-prmory-button big-button m-10">
+        Розпочати
+      </button>
+
+      <button class="ui-prmory-button big-button m-10 active">
+        active
+      </button>
+
+      <button class="ui-prmory-button m-10" disabled>
+        🠊
+      </button>
+    </div>
+
+    <div class="flex justify-center w-full my-10">
+      <button class="ui-secondary-button bg-white dark:bg-[#0f0] m-10">
+        <img src="assets/test.svg" alt="" />
+        <span>CSS</span>
+      </button>
+
+      <button class="ui-secondary-button bg-white dark:bg-[#0f0] m-10" disabled>
+        <img src="assets/test.svg" alt="" />
+        <span>CSS</span>
+      </button>
+
+      <button
+        class="ui-secondary-button big-button bg-white dark:bg-[#0f0] m-10"
+      >
+        <img src="assets/test.svg" alt="" />
+        <span>CSS</span>
+      </button>
+    </div>
+
+    <div class="flex flex-col items-center w-full my-10">
+      <div class="shadow-box w-full bg-white dark:bg-[#0f0] my-10">
+        <p>
+          Виберіть тегнології за якими тестуватимитесь
+        </p>
+      </div>
+
+      <div class="shadow-box w-full bg-white dark:bg-[#0f0]">
+        <p>
+          Production-ready website templates, built the way you want them.
+          Visually-stunning, easy to customize site templates built with React
+          and Next.js. The perfect starting point for your next project and the
+          ultimate resource for learning how experts build real websites with
+          Tailwind CSS Виберіть тегнології за якими тестуватимитесь
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center w-full my-10">
+      <div class="shadow-box flex items-center w-full bg-white dark:bg-[#0f0]">
+        <div class="ui-sircle active correct m-1"></div>
+
+        <div class="ui-sircle active incorrect m-1"></div>
+
+        <div class="ui-sircle active m-1"></div>
+
+        <div
+          class="ui-sircle m-1"
+          *ngFor="let i of [1,1,1,1,1,1,1,1,1,1]"
+        ></div>
+      </div>
+    </div>
+  </div>
+
