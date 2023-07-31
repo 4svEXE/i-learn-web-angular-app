@@ -10,6 +10,8 @@ module.exports = {
         darker: "#526D82",
         darkest: "#27374D",
 
+        contrast: "#0f0",
+
         light: {
           // primary: "#...",
           // secondary: "#...",
