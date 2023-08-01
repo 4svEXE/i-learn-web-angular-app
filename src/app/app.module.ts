@@ -14,6 +14,7 @@ import { SettingsComponent } from "./pages/settings/settings.component";
 import { AccountComponent } from "./pages/account/account.component";
 import { TestComponent } from "./pages/test/test.component";
 import { TestResultsComponent } from "./pages/test-results/test-results.component";
+import { BreadcrumpsComponent } from "./layout/header/breadcrumps/breadcrumps.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TestResultsComponent } from "./pages/test-results/test-results.componen
     AccountComponent,
     TestComponent,
     TestResultsComponent,
+    BreadcrumpsComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

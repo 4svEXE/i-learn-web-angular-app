@@ -1,1 +1,21 @@
-<p>home works!</p>
+<div class="flex flex-col w-full">
+  <button
+    *ngFor="let route of routes"
+    class="ui-prmory-button big-button my-3"
+    routerLink="{{route.path}}"
+  >
+    {{route.title}}
+  </button>
+
+  <!-- <nav class="flex">
+      <a i18n routerLink="/ui-kit" class="bg-[red] p-3 m-3">ui-kit</a>
+      <a i18n routerLink="/home" class="bg-[red] p-3 m-3">home</a>
+      <a i18n routerLink="/test" class="bg-[red] p-3 m-3">test</a>
+      <a i18n routerLink="/test-result" class="bg-[red] p-3 m-3">test-result</a>
+      <a i18n routerLink="/account" class="bg-[red] p-3 m-3">account</a>
+      <a i18n routerLink="/settings" class="bg-[red] p-3 m-3">settings</a>
+      <a i18n routerLink="/preperations" class="bg-[red] p-3 m-3"
+        >preperations</a
+      >
+    </nav> -->
+</div>

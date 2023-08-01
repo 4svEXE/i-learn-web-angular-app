@@ -1,24 +1,18 @@
 <header>
-  <div class="breadcrumpts">
-    <a routerLink="/home" class="nav-button">
-      home
-    </a>
-    /
-    <a class="nav-button"></a>
-  </div>
+  <app-breadcrumps />
 
   <button appThemeToggle class="text-[red]">Переключити тему</button>
   <!-- <h1 i18n>HELLO</h1> -->
 
-  <div class="flex">
+  <!-- <div class="flex">
     <a
       href="/i-learn-web-angular-app/{{locale.code}}/"
       *ngFor="let locale of localesList"
       class="text-[red]"
       >{{locale.label}}</a
     >
-  </div>
-
+  </div> -->
+ 
   <div class="user-bar flex">
     <span>lvl 12</span>
     <span>User Name</span>

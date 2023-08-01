@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  routes = [
+    {path: '/preperations', title: 'test' },
+    {path: '/account', title: 'account' },
+    {path: '/settings', title: 'settings' },
 
+    {path: '/home', title: 'about' },
+    {path: '/home', title: 'help' },
+  ]
 }
