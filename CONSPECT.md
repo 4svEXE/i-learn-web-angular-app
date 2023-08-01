@@ -62,3 +62,6 @@ angular-cli-ghpages --dir=dist/okey-post
 
 
     ng generate component layout/ui-kit
+
+
+       ng generate component pages/preparation-for-the-test

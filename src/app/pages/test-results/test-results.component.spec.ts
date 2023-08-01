@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WithThemeComponent } from './with-theme.component';
+import { TestResultsComponent } from './test-results.component';
 
-describe('WithThemeComponent', () => {
-  let component: WithThemeComponent;
-  let fixture: ComponentFixture<WithThemeComponent>;
+describe('TestResultsComponent', () => {
+  let component: TestResultsComponent;
+  let fixture: ComponentFixture<TestResultsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WithThemeComponent ]
+      declarations: [ TestResultsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WithThemeComponent);
+    fixture = TestBed.createComponent(TestResultsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
