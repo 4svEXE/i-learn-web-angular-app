@@ -1,0 +1,146 @@
+@import "./variables.scss";
+
+.ui-prmory-button {
+  border-radius: 12px;
+  background: $color-3;
+  width: 50px;
+  height: 50px;
+
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+
+  transition: 0.3s;
+  cursor: pointer;
+
+  &.big-button {
+    width: auto;
+    min-width: 300px;
+  }
+
+  &.active,
+  &:active,
+  &:hover {
+    background: $color-4;
+  }
+
+  &:disabled {
+    background: $color-3;
+    opacity: 0.4;
+  }
+}
+
+.ui-secondary-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  border: 1px solid $color-3;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:active,
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  img {
+    width: 80px;
+    height: 60px;
+    display: inline-block;
+  }
+
+  span {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  &.big-button {
+    width: 130px;
+    height: 130px;
+    padding: 20px;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
+.shadow-box {
+  //   background: #fff;
+  box-shadow: 1px 1px 10px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
+  p {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.ui-sircle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 3px solid $color-4;
+  background: $color-3;
+  opacity: 0.5;
+
+  &.correct {
+    background-color: #0f0;
+  }
+  &.incorrect {
+    background-color: #f00;
+  }
+  &.active {
+    opacity: 1;
+  }
+}
+
+.nav-button {
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  padding: 2px 2px;
+
+  position: relative;
+  transition: 0.5s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: #fff;
+    transition: 0.3s;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
