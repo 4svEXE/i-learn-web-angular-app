@@ -1,16 +1,22 @@
 <div
   id="content"
-  class="flex flex-col items-center text-white dark:bg-dark-bgc bg-light-bgc"
+  class="h-screen flex flex-col items-center justify-between text-white dark:bg-dark-bgc bg-light-bgc"
 >
-  <nav class="flex">
-    <a routerLink="/ui-kit" class="bg-[red] p-3 m-3">ui-kit</a>
-    <a routerLink="/home" class="bg-[red] p-3 m-3">home</a>
-    <a routerLink="/test" class="bg-[red] p-3 m-3">test</a>
-    <a routerLink="/test-result" class="bg-[red] p-3 m-3">test-result</a>
-    <a routerLink="/account" class="bg-[red] p-3 m-3">account</a>
-    <a routerLink="/settings" class="bg-[red] p-3 m-3">settings</a>
-    <a routerLink="/preperations" class="bg-[red] p-3 m-3">preperations</a>
-  </nav>
+  <div class="flex flex-col items-center">
+    <!-- <nav class="flex">
+      <a routerLink="/ui-kit" class="bg-[red] p-3 m-3">ui-kit</a>
+      <a routerLink="/home" class="bg-[red] p-3 m-3">home</a>
+      <a routerLink="/test" class="bg-[red] p-3 m-3">test</a>
+      <a routerLink="/test-result" class="bg-[red] p-3 m-3">test-result</a>
+      <a routerLink="/account" class="bg-[red] p-3 m-3">account</a>
+      <a routerLink="/settings" class="bg-[red] p-3 m-3">settings</a>
+      <a routerLink="/preperations" class="bg-[red] p-3 m-3">preperations</a>
+    </nav> -->
 
-  <router-outlet></router-outlet>
+    <app-header />
+
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer />
 </div>
