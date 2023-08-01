@@ -1,3 +1,11 @@
+ng build --configuration production --localize --base-href "https://4svEXE.github.io/i-learn-web-angular-app/"
+
+angular-cli-ghpages --dir=dist
+
+## ======
+
+
+
 ## Add Angular
     yarn add @angular/cli
 ## Create Angular app 
@@ -70,13 +78,9 @@ angular-cli-ghpages --dir=dist/okey-post
 https://www.youtube.com/watch?v=HUxcqus6krw
 
 ng add @angular/localize 
-
 ng extract-i18n --output-path src/i18n
-
 ng serve --configuration=ua
 
-<a i18n i18n-href routerLink="/ui-kit" class="bg-[red] p-3 m-3">ui-kit</a>
-
-ng build --configuration production --base-href "https://4svEXE.github.io/i-learn-web-angular-app/"
-
+## Upload
+ng build --configuration production --localize --base-href "https://4svEXE.github.io/i-learn-web-angular-app/"
 angular-cli-ghpages --dir=dist/
