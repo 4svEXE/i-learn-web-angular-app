@@ -1,13 +1,23 @@
 <header>
   <div class="breadcrumpts">
     <a routerLink="/home" class="nav-button">
-      home 
+      home
     </a>
     /
     <a class="nav-button"></a>
   </div>
 
-  <!-- <button appThemeToggle class="text-[red]">Переключити тему</button> -->
+  <button appThemeToggle class="text-[red]">Переключити тему</button>
+  <!-- <h1 i18n>HELLO</h1> -->
+
+  <div class="flex">
+    <a
+      href="/{{locale.code}}/"
+      *ngFor="let locale of localesList"
+      class="text-[red]"
+      >{{locale.label}}</a
+    >
+  </div>
 
   <div class="user-bar flex">
     <span>lvl 12</span>

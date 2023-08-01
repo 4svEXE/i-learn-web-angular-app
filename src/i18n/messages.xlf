@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1486628788725214524" datatype="html">
+        <source>HELLO</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/header/header.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="810446775476745769" datatype="html">
+        <source>ui-kit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/providers/with-theme/with-theme.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4976935068632868195" datatype="html">
+        <source>home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/providers/with-theme/with-theme.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4677175911030006427" datatype="html">
+        <source>test</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/providers/with-theme/with-theme.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2583192251533707762" datatype="html">
+        <source>test-result</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/providers/with-theme/with-theme.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8733230138899795898" datatype="html">
+        <source>account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/providers/with-theme/with-theme.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8012836828351098527" datatype="html">
+        <source>settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/providers/with-theme/with-theme.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4491893519787655784" datatype="html">
+        <source>preperations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/providers/with-theme/with-theme.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
