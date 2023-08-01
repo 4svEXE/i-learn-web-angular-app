@@ -11,11 +11,11 @@ import { PreparationForTheTestComponent } from "./pages/preparation-for-the-test
 const routes: Routes = [
   { path: "ui-kit", component: UiKitComponent },
   { path: "home", component: HomeComponent },
-  { path: "test", component: TestComponent },
-  { path: "test-result", component: TestResultsComponent },
-  { path: "account", component: AccountComponent },
-  { path: "settings", component: SettingsComponent },
-  { path: "preperations", component: PreparationForTheTestComponent },
+  { path: "home/test", component: TestComponent },
+  { path: "home/test-result", component: TestResultsComponent },
+  { path: "home/account", component: AccountComponent },
+  { path: "home/settings", component: SettingsComponent },
+  { path: "home/preperations", component: PreparationForTheTestComponent },
 ];
 
 @NgModule({

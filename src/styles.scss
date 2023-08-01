@@ -4,10 +4,16 @@
 @tailwind utilities;
 
 
+
 @import "./assets/styles/variables.scss";
 @import "./assets/styles/ui-kit.scss";
 
 #content{
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+*{
+    // border: 1px solid red;
 }

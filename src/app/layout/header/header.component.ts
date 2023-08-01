@@ -6,8 +6,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {
-  localesList = [
-    { code: "en-US", label: "English" },
-    { code: "ua", label: "Українська" },
-  ];
+  
 }

@@ -11,7 +11,7 @@ export class BreadcrumpsComponent {
 
   constructor(private location: Location) {
     this.location.onUrlChange((url) => {
-      this.currentUrl = url;
+      this.currentUrl = url.substring(1);
     });
   }
 }

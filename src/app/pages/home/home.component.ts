@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   routes = [
-    {path: '/preperations', title: 'test' },
-    {path: '/account', title: 'account' },
-    {path: '/settings', title: 'settings' },
+    {path: '/home/preperations', title: 'test' },
+    {path: '/home/account', title: 'account' },
+    {path: '/home/settings', title: 'settings' },
 
     {path: '/home', title: 'about' },
     {path: '/home', title: 'help' },
