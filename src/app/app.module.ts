@@ -15,6 +15,8 @@ import { AccountComponent } from "./pages/account/account.component";
 import { TestComponent } from "./pages/test/test.component";
 import { TestResultsComponent } from "./pages/test-results/test-results.component";
 import { BreadcrumpsComponent } from "./layout/header/breadcrumps/breadcrumps.component";
+import { GeneralSettingsComponent } from './pages/settings/general-settings/general-settings.component';
+import { TestSettingsComponent } from './pages/settings/test-settings/test-settings.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { BreadcrumpsComponent } from "./layout/header/breadcrumps/breadcrumps.co
     AccountComponent,
     TestComponent,
     TestResultsComponent,
-    BreadcrumpsComponent
+    BreadcrumpsComponent,
+    GeneralSettingsComponent,
+    TestSettingsComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
