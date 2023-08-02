@@ -1,1 +1,50 @@
-<p>account works!</p>
+<div class="ui-container justify-start h-full" id="account-page">
+  <div class="shadow-box w-full bg-white dark:bg-contrast">
+    <h2 i18n>
+      Your account
+    </h2>
+  </div>
+
+  <div class="flex mt-5">
+    <img src="{{IMG_AVATARS_PATH + user.avatar}}.svg" alt="user avatar" class="user-avatar" />
+
+    <div class="flex flex-col text-black dark:text-white">
+      <h3>{{user.name}}</h3>
+      <span>{{user.faction}}</span>
+
+      <div class="flex technologies mt-3">
+        <img
+          *ngFor="let tech of user.selectedTechnologies"
+          src="assets/test.svg"
+          alt="css"
+          class="bg-white dark:bg-contrast"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="shadow-box w-full mt-5 bg-white dark:bg-contrast">
+    <h2 i18n>
+      Statistics
+    </h2>
+  </div>
+
+  <div class="statistics flex flex-col text-black dark:text-white mt-5">
+    <span i18n>Дата входу: <b> {{user.dateOfLogin}}</b></span>
+    <span i18n>Тестів пройдено: <b> 12</b></span>
+    <span>Результати тестів:</span>
+
+    <div class="history-box">
+      <div
+        *ngFor="let i of [1,2,3,4,5,1,1,1,1,1,1,1,1,1]"
+        class="w-full grid grid-cols-7 shadow-box sm-box mb-2"
+      >
+        <div style="border-left: 3px solid blue;">Junior</div>
+        <div>Frontend</div>
+        <div class="col-span-3">HTML, CSS, TS, ANGULAR</div>
+        <div>20.12.2022</div>
+        <div>14/20</div>
+      </div>
+    </div>
+  </div>
+</div>

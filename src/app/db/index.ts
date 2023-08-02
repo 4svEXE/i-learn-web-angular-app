@@ -15,3 +15,12 @@ export const DifficultyLevels = [
   "senior",
   "lead",
 ];
+
+export const User = {
+  name: "",
+  faction: "",
+  avatar: "",
+  dateOfLogin: "",
+  combo: 12,
+  selectedTechnologies: ["string"],
+};
