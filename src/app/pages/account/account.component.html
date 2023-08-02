@@ -6,10 +6,15 @@
   </div>
 
   <div class="flex mt-5">
-    <img src="{{IMG_AVATARS_PATH + user.avatar}}.svg" alt="user avatar" class="user-avatar" />
+    <img
+      src="{{IMG_AVATARS_PATH + user.avatar}}.svg"
+      alt="user avatar"
+      class="user-avatar"
+      (click)="isOpenAvatarsBox = true"
+    />
 
     <div class="flex flex-col text-black dark:text-white">
-      <h3>{{user.name}}</h3>
+      <input type="text" value="{{user.name}}" #name (input)="setUserName(name.value)">
       <span>{{user.faction}}</span>
 
       <div class="flex technologies mt-3">
@@ -45,6 +50,30 @@
         <div>20.12.2022</div>
         <div>14/20</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="avatars-box bg-white dark:bg-darkest"
+  [class.active]="isOpenAvatarsBox"
+  (click)="isOpenAvatarsBox = false"
+>
+  <button class="ui-prmory-button close-button">
+    ×
+  </button>
+
+  <div class="grid gap-3 grid-cols-5 w-full h-[60%]">
+    <div
+      *ngFor="let avatar of userAvatars"
+      class="flex w-full h-full items-center justify-center"
+    >
+      <img
+        src="{{IMG_AVATARS_PATH + avatar}}.svg"
+        alt="user avatar"
+        class="user-avatar-variant"
+        (click)="changeAvatar(avatar)"
+      />
     </div>
   </div>
 </div>

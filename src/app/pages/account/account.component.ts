@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { UserService } from "src/app/shared/services/user.service";
 import { UserInterface } from "./../../interfaces/";
-import { User } from "src/app/db";
+import { User, UserAvatars } from "src/app/db";
 
 @Component({
   selector: "app-account",
@@ -12,8 +12,9 @@ export class AccountComponent {
   readonly IMG_AVATARS_PATH = "assets/images/pages/account/avatars/";
 
   user: UserInterface = User;
+  userAvatars: string[] = UserAvatars;
 
-  isOpenAvatarsBox = true;
+  isOpenAvatarsBox = false;
 
   constructor(private userService: UserService) {
     this.user.name = this.userService.getName();
@@ -23,7 +24,15 @@ export class AccountComponent {
     this.user.selectedTechnologies = this.userService.getSelectedTechnologies();
   }
 
-  changeAvatar(){
+  changeAvatar(avatar: string) {
+    this.userService.setAvatar(avatar);
+    this.user.avatar = this.userService.getAvatar();
+  }
 
+  setUserName(name: string) { 
+    if (name.length !== 0) {
+      this.userService.setName(name);
+      this.user.name = this.userService.getName();
+    }
   }
 }
