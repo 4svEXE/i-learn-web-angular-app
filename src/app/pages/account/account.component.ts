@@ -13,11 +13,17 @@ export class AccountComponent {
 
   user: UserInterface = User;
 
+  isOpenAvatarsBox = true;
+
   constructor(private userService: UserService) {
     this.user.name = this.userService.getName();
     this.user.faction = this.userService.getFaction();
     this.user.avatar = this.userService.getAvatar();
     this.user.dateOfLogin = this.userService.getDateOfLogin();
     this.user.selectedTechnologies = this.userService.getSelectedTechnologies();
+  }
+
+  changeAvatar(){
+
   }
 }
