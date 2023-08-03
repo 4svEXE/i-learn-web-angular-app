@@ -180,6 +180,7 @@
   width: 100vw;
   height: 100vh;
   transition: 0.3s;
+  overflow: hidden;
 
   &.active {
     left: 0;
