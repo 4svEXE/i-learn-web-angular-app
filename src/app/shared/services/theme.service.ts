@@ -11,9 +11,7 @@ export class ThemeService {
     this.renderer = rendererFactory.createRenderer(null, null);
 
     this.setTheme(this.getCurrentTheme());
-    console.log('this.getCurrentTheme() :>> ', this.getCurrentTheme());
   }
-
 
   setTheme(theme: string): void {
     this.currentTheme = this.getCurrentTheme();

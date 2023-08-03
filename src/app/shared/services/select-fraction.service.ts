@@ -11,7 +11,7 @@ export class SelectFractionService {
   private isActiveFractionSubject = new Subject<boolean>();
   data$ = this.isActiveFractionSubject.asObservable();
 
-  sendFractionData(isActive: boolean) {
+  setIsActiveFractionBox(isActive: boolean) {
     this.isActiveFractionSubject.next(isActive);
   }
 }

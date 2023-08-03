@@ -15,7 +15,7 @@ export class UserService {
 
   // Приватні поля для зберігання даних користувача
   private name!: string;
-  private fraction: string = "";
+  private fraction: string = '';
   private avatar!: string;
   private dateOfLogin!: string;
   private combo!: number;
@@ -23,21 +23,47 @@ export class UserService {
 
   // Обсервер для фракції
   private fractionSubject = new Subject<string>();
-  data$ = this.fractionSubject.asObservable();
+  userFraction$ = this.fractionSubject.asObservable(); ////////////////////////
 
-  sendFractionData(fraction: string) {
+  setIsActiveFractionBox(fraction: string) {
     this.fractionSubject.next(fraction);
+
+    console.log('fraction from setIsActiveFractionBox :>> ', fraction); //////////////
   }
 
   constructor() {
     // Виклик методів set для встановлення значень при створенні об'єкту UserService
     this.setName(this.getName());
+
+
     this.setFraction(this.getFraction());
+
+
+
     this.setAvatar(this.getAvatar());
     this.setDateOfLogin(this.getDateOfLogin());
     this.setCombo(this.getCombo());
     this.setSelectedTechnologies(this.getSelectedTechnologies());
   }
+
+  // Метод для встановлення фракції користувача
+  setFraction(fraction: string): void {
+    this.fraction = fraction || this.getFraction();
+    localStorage.setItem("userFraction", this.fraction);
+
+    this.setIsActiveFractionBox(this.fraction);
+
+    console.log('IM SET setFraction :>> ', this.fraction);
+  }
+
+  // Метод для отримання фракції користувача з локального сховища
+  getFraction(): string {
+    return localStorage.getItem("userFraction") || this.DEFAULT_FRACTION;
+  }
+
+
+
+  
 
   // Метод для встановлення ім'я користувача
   setName(name: string): void {
@@ -50,18 +76,7 @@ export class UserService {
     return localStorage.getItem("userName") || this.DEFAULT_NAME;
   }
 
-  // Метод для встановлення фракції користувача
-  setFraction(fraction: string): void {
-    this.fraction = fraction || this.DEFAULT_FRACTION;
-    localStorage.setItem("userFraction", this.fraction);
-
-    this.sendFractionData(this.fraction);
-  }
-
-  // Метод для отримання фракції користувача з локального сховища
-  getFraction(): string {
-    return localStorage.getItem("userFraction") || this.DEFAULT_FRACTION;
-  }
+  
 
   // Метод для встановлення аватара користувача
   setAvatar(avatar: string): void {

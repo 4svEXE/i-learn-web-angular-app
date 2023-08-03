@@ -14,55 +14,60 @@ export class SelectFractionComponent {
   currentScreenWidth!: number;
   currentScreenHeight!: number;
 
-  userFraction!: string;
   isActiveSettings: boolean = false;
-  isActiveSelectFraction: boolean = false;
-  webFractions = WebFractions;
+
+  userFraction!: string;
+  isActiveSelectFraction = false;
+  readonly webFractions = WebFractions;
 
   constructor(
     private userService: UserService,
     private selectFractionService: SelectFractionService
   ) {
-    // this.userFraction = this.userService.getFraction();
-
     this.selectFractionService.data$.subscribe((isActive: boolean) => {
-      this.isActiveSettings = isActive;
+      this.isActiveSelectFraction = isActive;
+      console.log("isActiveSelectFraction :>> ", this.isActiveSelectFraction);
     });
 
-    this.userService.data$.subscribe((fraction: any) => {
+    ////////////////////////////////////////////////////////
+    this.userService.userFraction$.subscribe((fraction: string) => {
       this.userFraction = fraction;
+
+      if (!this.userFraction) {
+        this.selectFractionService.setIsActiveFractionBox(true);
+        console.log("here :>> ", this.userFraction);
+      }
+
+
+      console.log("userFractionq2121 :>> ", this.userFraction, fraction);
     });
+
+    this.userService.setFraction(this.userService.getFraction());
+
+    this.initUserData();
+    this.getScreen();
   }
 
   @HostListener("window:resize", ["$event"])
   onResize(event: any) {
-    // console.log('event :>> ', event);
-    // Отримуємо ширину та висоту екрану і зберігаємо їх у змінних
-    this.currentScreenWidth = window.innerWidth;
-    this.currentScreenHeight = window.innerHeight;
-
-    
+    this.getScreen();
   }
 
-  ngOnInit() {
-    console.log('this.userFraction :>> ', this.userFraction);
-    if (!this.userFraction){
-      if (this.userFraction.length === 0) {
-        // this.isActiveSelectFraction = true;
-        this.selectFractionService.sendFractionData(true)
-      }
-    }
-    
-
+  getScreen() {
     this.currentScreenWidth = window.innerWidth;
     this.currentScreenHeight = window.innerHeight;
-    console.log('object :>> ', this.currentScreenWidth);
   }
 
   setFraction(fraction: string) {
     this.userService.setFraction(fraction);
     this.userFraction = fraction;
-    // this.isActiveSelectFraction = false;
-    this.selectFractionService.sendFractionData(false)
+    this.selectFractionService.setIsActiveFractionBox(false);
+  }
+
+  private initUserData() {
+    // if (!this.userFraction) {
+    //   this.selectFractionService.setIsActiveFractionBox(true);
+    //   console.log("here :>> ", this.userFraction);
+    // }
   }
 }
