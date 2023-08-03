@@ -13,7 +13,6 @@ export class SelectFractionComponent {
 
   currentScreenWidth!: number;
   currentScreenHeight!: number;
-
   isActiveSettings: boolean = false;
 
   userFraction!: string;
@@ -26,25 +25,17 @@ export class SelectFractionComponent {
   ) {
     this.selectFractionService.data$.subscribe((isActive: boolean) => {
       this.isActiveSelectFraction = isActive;
-      console.log("isActiveSelectFraction :>> ", this.isActiveSelectFraction);
     });
 
-    ////////////////////////////////////////////////////////
     this.userService.userFraction$.subscribe((fraction: string) => {
       this.userFraction = fraction;
 
       if (!this.userFraction) {
         this.selectFractionService.setIsActiveFractionBox(true);
-        console.log("here :>> ", this.userFraction);
       }
-
-
-      console.log("userFractionq2121 :>> ", this.userFraction, fraction);
     });
 
     this.userService.setFraction(this.userService.getFraction());
-
-    this.initUserData();
     this.getScreen();
   }
 
@@ -62,12 +53,5 @@ export class SelectFractionComponent {
     this.userService.setFraction(fraction);
     this.userFraction = fraction;
     this.selectFractionService.setIsActiveFractionBox(false);
-  }
-
-  private initUserData() {
-    // if (!this.userFraction) {
-    //   this.selectFractionService.setIsActiveFractionBox(true);
-    //   console.log("here :>> ", this.userFraction);
-    // }
   }
 }
