@@ -1,0 +1,56 @@
+<div
+  class="ui-full-screen-box ui-flex-box z-20 bg-white dark:bg-darkest text-black dark:text-white"
+  [class.active]="isActiveSelectFraction"
+>
+  <div class="flex flex-col h-full items-center">
+    <h2 i18n class="bg-darker text-white">Select your fraction</h2>
+
+    <carousel
+      [height]="currentScreenHeight"
+      [width]="currentScreenWidth"
+      [cellsToShow]="1"
+      [loop]="true"
+    >
+      <div
+        *ngFor="let fraction of webFractions"
+        class="carousel-cell fraction-card flex flex-col h-full items-center"
+      >
+        <div class="img-container flex">
+          <img
+            src="{{IMG_PATH + fraction.image}}"
+            alt="{{fraction.customTitle}}"
+          />
+        </div>
+
+        <div class="text-box flex flex-col w-full items-center text-white">
+          <h3 i18n>{{fraction.title}}</h3>
+
+          <div
+            i18n
+            class="decribition max-w-[500px]"
+            [innerHTML]="fraction.deskribition"
+          ></div>
+
+          <button
+            class="ui-pirmory-button md-button text-white m-3"
+            (click)="setFraction(fraction.title)"
+            i18n
+          >
+            SELECT
+          </button>
+        </div>
+      </div>
+    </carousel>
+
+    <div
+      (click)="isActiveSettings = !isActiveSettings"
+      class="settings flex flex-col bg-white dark:bg-darker"
+      [class.active]="isActiveSettings"
+    >
+      <a class="w-full text-center p-3 border-darkest" i18n>
+        {{isActiveSettings? 'x': '≡'}}
+      </a>
+      <app-general-settings class="px-2" />
+    </div>
+  </div>
+</div>

@@ -18,10 +18,19 @@ export class AccountComponent {
 
   constructor(private userService: UserService) {
     this.user.name = this.userService.getName();
-    this.user.faction = this.userService.getFaction();
+    // this.user.fraction = this.userService.getFraction();
     this.user.avatar = this.userService.getAvatar();
     this.user.dateOfLogin = this.userService.getDateOfLogin();
     this.user.selectedTechnologies = this.userService.getSelectedTechnologies();
+
+    this.userService.data$.subscribe((fraction: any) => {
+      this.user.fraction = fraction;
+      console.log('fraction :>> ', fraction);
+    });
+  }
+
+  test(){
+    
   }
 
   changeAvatar(avatar: string) {

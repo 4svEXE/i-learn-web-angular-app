@@ -17,7 +17,7 @@ export class HeaderComponent {
     this.user.name = this.userService.getName();
     this.user.avatar = this.userService.getAvatar();
     this.user.combo = this.userService.getCombo();
-    // this.user.faction = this.userService.getFaction();
+    // this.user.fraction = this.userService.getFraction();
     // this.user.dateOfLogin = this.userService.getDateOfLogin();
     // this.user.selectedTechnologies = this.userService.getSelectedTechnologies();
   }

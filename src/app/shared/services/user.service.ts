@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -6,7 +7,7 @@ import { Injectable } from "@angular/core";
 export class UserService {
   // Значення за замовчуванням для полів користувача
   private readonly DEFAULT_NAME = "User Name";
-  private readonly DEFAULT_FACTION = "Frontend";
+  private readonly DEFAULT_FRACTION = "";
   private readonly DEFAULT_AVATAR = "1";
   private readonly DEFAULT_DATE_OF_LOGIN = new Date().toLocaleString();
   private readonly DEFAULT_COMBO = 1;
@@ -14,16 +15,24 @@ export class UserService {
 
   // Приватні поля для зберігання даних користувача
   private name!: string;
-  private faction!: string;
+  private fraction: string = "";
   private avatar!: string;
   private dateOfLogin!: string;
   private combo!: number;
   private selectedTechnologies!: string[];
 
+  // Обсервер для фракції
+  private fractionSubject = new Subject<string>();
+  data$ = this.fractionSubject.asObservable();
+
+  sendFractionData(fraction: string) {
+    this.fractionSubject.next(fraction);
+  }
+
   constructor() {
     // Виклик методів set для встановлення значень при створенні об'єкту UserService
     this.setName(this.getName());
-    this.setFaction(this.getFaction());
+    this.setFraction(this.getFraction());
     this.setAvatar(this.getAvatar());
     this.setDateOfLogin(this.getDateOfLogin());
     this.setCombo(this.getCombo());
@@ -42,14 +51,16 @@ export class UserService {
   }
 
   // Метод для встановлення фракції користувача
-  setFaction(faction: string): void {
-    this.faction = faction || this.DEFAULT_FACTION;
-    localStorage.setItem("userFaction", this.faction);
+  setFraction(fraction: string): void {
+    this.fraction = fraction || this.DEFAULT_FRACTION;
+    localStorage.setItem("userFraction", this.fraction);
+
+    this.sendFractionData(this.fraction);
   }
 
   // Метод для отримання фракції користувача з локального сховища
-  getFaction(): string {
-    return localStorage.getItem("userFaction") || this.DEFAULT_FACTION;
+  getFraction(): string {
+    return localStorage.getItem("userFraction") || this.DEFAULT_FRACTION;
   }
 
   // Метод для встановлення аватара користувача

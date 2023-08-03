@@ -15,7 +15,8 @@
 
     <div class="flex flex-col text-black dark:text-white">
       <input type="text" value="{{user.name}}" #name (input)="setUserName(name.value)">
-      <span>{{user.faction}}</span>
+
+      <span (click)="test()" class="mt-3">{{user.fraction}}</span>
 
       <div class="flex technologies mt-3">
         <img
@@ -55,11 +56,11 @@
 </div>
 
 <div
-  class="avatars-box bg-white dark:bg-darkest"
+  class="ui-full-screen-box ui-flex-box avatars-box bg-white dark:bg-darkest"
   [class.active]="isOpenAvatarsBox"
   (click)="isOpenAvatarsBox = false"
 >
-  <button class="ui-prmory-button close-button">
+  <button class="ui-pirmory-button close-button">
     ×
   </button>
 

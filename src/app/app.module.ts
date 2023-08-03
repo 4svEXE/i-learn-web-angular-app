@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -17,6 +18,7 @@ import { TestResultsComponent } from "./pages/test-results/test-results.componen
 import { BreadcrumpsComponent } from "./layout/header/breadcrumps/breadcrumps.component";
 import { GeneralSettingsComponent } from './pages/settings/general-settings/general-settings.component';
 import { TestSettingsComponent } from './pages/settings/test-settings/test-settings.component';
+import { SelectFractionComponent } from './layout/select-fraction/select-fraction.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { TestSettingsComponent } from './pages/settings/test-settings/test-setti
     TestResultsComponent,
     BreadcrumpsComponent,
     GeneralSettingsComponent,
-    TestSettingsComponent
+    TestSettingsComponent,
+    SelectFractionComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, IvyCarouselModule],
   providers: [],
   bootstrap: [AppComponent],
 })

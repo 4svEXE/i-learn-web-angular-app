@@ -88,23 +88,6 @@
 }
 
 .avatars-box {
-  position: fixed;
-  top: 0;
-  left: -100%;
-
-  width: 100%;
-  height: 100%;
-//   background-color: red;
-  transition: 0.3s;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &.active {
-    left: 0;
-  }
-
   .close-button {
     position: absolute;
     top: 20px;

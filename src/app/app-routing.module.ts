@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: "home/account", component: AccountComponent },
   { path: "home/settings", component: SettingsComponent },
   { path: "home/preperations", component: PreparationForTheTestComponent },
+  
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({

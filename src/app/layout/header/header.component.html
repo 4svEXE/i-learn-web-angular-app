@@ -1,7 +1,7 @@
 <header>
   <app-breadcrumps />
 
-  <div class="user-bar flex">
+  <div class="user-bar flex" routerLink="/home/account">
     <span>lvl {{user.combo}}</span>
     <span>{{user.name}}</span>
     <img src="{{IMG_AVATARS_PATH + user.avatar}}.svg" alt="user avatar" />

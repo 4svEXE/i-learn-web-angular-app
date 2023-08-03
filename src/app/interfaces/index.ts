@@ -1,6 +1,6 @@
 export interface UserInterface {
   name: string;
-  faction: string;
+  fraction: string;
   avatar: string;
   dateOfLogin: string;
   combo: number;
