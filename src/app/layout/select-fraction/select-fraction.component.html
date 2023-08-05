@@ -47,8 +47,8 @@
       class="settings flex flex-col bg-white dark:bg-darker"
       [class.active]="isActiveSettings"
     >
-      <a class="w-full text-center p-3 border-darkest" i18n>
-        {{isActiveSettings? 'x': '≡'}}
+      <a class="w-full text-center text-3xl p-3 border-darkest" i18n>
+        {{isActiveSettings? '×': '≡'}}
       </a>
       <app-general-settings class="px-2" />
     </div>
