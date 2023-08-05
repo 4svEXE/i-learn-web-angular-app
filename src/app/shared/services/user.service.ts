@@ -15,7 +15,7 @@ export class UserService {
 
   // Приватні поля для зберігання даних користувача
   private name!: string;
-  private fraction: string = "";
+  private fraction: string = this.DEFAULT_FRACTION; // "Front-end" | "Back-end" | "Full-stack"| "Web Designer"| "DevOps" |
   private avatar!: string;
   private dateOfLogin!: string;
   private combo!: number;
