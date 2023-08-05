@@ -1,1 +1,30 @@
-<p>preparation-for-the-test works!</p>
+<div class="ui-container justify-start h-full z-50">
+  <div class="shadow-box w-full bg-white dark:bg-contrast">
+    <h2 i18n>
+      Choose the technologies for which you will be tested
+    </h2>
+  </div>
+
+  <div class="ui-box items-start">
+    <div class="w-full flex justify-between text-black dark:text-white mt-5">
+      <a (click)="renderListOfTec('Recomendet')" class="nav-button active">
+        <h4 i18n>Recomendet</h4>
+      </a>
+      <a (click)="renderListOfTec('All')" class="nav-button"
+        ><h4 class="" i18n>All technologies</h4></a
+      >
+    </div>
+
+    <div class="w-full grid grid-cols-4 gap-3 mt-5">
+      <button
+        *ngFor="let tech of technologies"
+        class="ui-secondary-button bg-white dark:bg-contrast"
+      >
+        <div class="content">
+          <img src="assets/test.svg" alt="" />
+          <span>{{tech.title}}</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
