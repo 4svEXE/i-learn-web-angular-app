@@ -1,6 +1,8 @@
 import { Component, HostListener } from "@angular/core";
 import { WebFractions } from "src/app/db";
+import { RecomendetFractionsTechnologies } from "src/app/db/RecomendetFractionsTechnologies";
 import { SelectFractionService } from "src/app/shared/services/select-fraction.service";
+import { TechnologiesService } from "src/app/shared/services/technologies.service";
 import { UserService } from "src/app/shared/services/user.service";
 
 @Component({
@@ -10,6 +12,7 @@ import { UserService } from "src/app/shared/services/user.service";
 })
 export class SelectFractionComponent {
   readonly IMG_PATH: string = "assets/images/pages/fractions/";
+  recomendetTech = RecomendetFractionsTechnologies;
 
   currentScreenWidth!: number;
   currentScreenHeight!: number;
@@ -21,7 +24,8 @@ export class SelectFractionComponent {
 
   constructor(
     private userService: UserService,
-    private selectFractionService: SelectFractionService
+    private selectFractionService: SelectFractionService,
+    private techService: TechnologiesService
   ) {
     this.selectFractionService.data$.subscribe((isActive: boolean) => {
       this.isActiveSelectFraction = isActive;
@@ -53,5 +57,9 @@ export class SelectFractionComponent {
     this.userService.setFraction(fraction);
     this.userFraction = fraction;
     this.selectFractionService.setIsActiveFractionBox(false);
+
+    // Set rec techs to ls
+    let recomendet = this.techService.getRecomendetTechByTitle(fraction);
+    this.techService.setSelectedTech(recomendet);
   }
 }

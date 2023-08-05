@@ -3,7 +3,7 @@ import { Technologies } from "src/app/db/Tecnologies";
 import { TechnologiesService } from "./../../shared/services/technologies.service";
 import { RecomendetFractionsTechnologies } from "./../../db/RecomendetFractionsTechnologies";
 import { UserService } from "./../../shared/services/user.service";
-import { AllTechnologies } from './../../db/AllTecnologies';
+import { AllTechnologies } from "./../../db/AllTecnologies";
 
 @Component({
   selector: "app-preparation-for-the-test",
@@ -12,6 +12,8 @@ import { AllTechnologies } from './../../db/AllTecnologies';
 })
 export class PreparationForTheTestComponent {
   readonly IMG_PATH: string = "";
+
+  isRecomendetButtonActive = true;
 
   technologies = Technologies; // All tecnologies as a entitys
   allTech = AllTechnologies; // All tecnologies as a list
@@ -38,31 +40,37 @@ export class PreparationForTheTestComponent {
   }
 
   renderListOfTech(tech: string) {
-    if (tech === "Saved") {
-      if (this.techService.getSelectedTech().length !== 0) {
-
-
-        this.techToRender = this.techService.getTechAsEntitys(this.selectedTech)
-
-        console.log('here seve:>> ', this.techToRender);
-
-      } else {
-        this.renderListOfTech("Recomendet");
-      }
-    }
+    // if (tech === "Saved") {
+    //   if (this.techService.getSelectedTech().length !== 0) {
+    //     this.techToRender = this.techService.getTechAsEntitys(
+    //       this.selectedTech
+    //     );
+    //   } else {
+    //     this.renderListOfTech("Recomendet");
+    //   }
+    // }
     if (tech === "Recomendet") {
-      this.sortedTechnologies = this.recomendetTech.filter((fraction) => {
-        return fraction.title === this.userFraction;
-      })[0]?.tech || [""];
+      this.sortedTechnologies = this.techService.getRecomendetTechByTitle(this.userFraction);
 
-      this.techToRender = this.techService.getTechAsEntitys(this.sortedTechnologies)
+      console.log('this.sortedTechnologies :>> ', this.sortedTechnologies);
 
-      console.log('here  rec:>> ', this.techToRender);
+      this.techToRender = this.techService.getTechAsEntitys(
+        this.sortedTechnologies
+      );
+
+      this.isRecomendetButtonActive = true;
     }
     if (tech === "All") {
       this.techToRender = this.technologies;
-
-      console.log('here all :>> ', this.techToRender);
+      this.isRecomendetButtonActive = false;
     }
+  }
+
+  checkIsSelectedTech(tech: string) {
+    for (let i = 0; i < this.selectedTech.length; i++) {
+      if (this.selectedTech[i] === tech) return true;
+    }
+
+    return false;
   }
 }

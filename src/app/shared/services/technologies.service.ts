@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { RecomendetFractionsTechnologies } from "src/app/db/RecomendetFractionsTechnologies";
 import { Technologies } from "src/app/db/Tecnologies";
 
 @Injectable({
@@ -8,6 +9,8 @@ export class TechnologiesService {
   private selectedTechnologies!: string[];
 
   private techEntitys = Technologies;
+
+  recomendetTech = RecomendetFractionsTechnologies
 
   constructor() {
     this.setSelectedTech(this.getSelectedTech());
@@ -26,6 +29,8 @@ export class TechnologiesService {
     localStorage.setItem("selectedTechnologies", strTech);
   }
 
+
+
   // push one item to arr
   pushSelectedTech(tech: string) {
     this.selectedTechnologies.push(tech);
@@ -33,9 +38,10 @@ export class TechnologiesService {
   }
 
   deleteSelectedTech(tech: string) {
-    this.selectedTechnologies.push(tech);
+    this.selectedTechnologies = this.selectedTechnologies.filter(
+      (e) => e !== tech
+    );
 
-    
     this.setSelectedTech(this.getSelectedTech());
   }
 
@@ -52,5 +58,11 @@ export class TechnologiesService {
     });
 
     return resultTechEntitys;
+  }
+
+  getRecomendetTechByTitle(title: string): string[]{
+    return this.recomendetTech.filter((fraction) => {
+      return fraction.title === title;
+    })[0]?.tech || [""];
   }
 }
