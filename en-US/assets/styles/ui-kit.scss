@@ -50,17 +50,15 @@
   transition: 0.3s;
   cursor: pointer;
 
-  &:active,
-  &:hover {
-    transform: scale(1.1);
-  }
+  // &:active,
+  // &:hover {
+  //   transform: scale(1.1);
+  // }
 
-  &:disabled{
-    opacity: 0.6;
-  }
-
-  &.disabled{
+  &:disabled,
+  &.disabled {
     opacity: 0.4;
+    border: none;
   }
 
   a,
