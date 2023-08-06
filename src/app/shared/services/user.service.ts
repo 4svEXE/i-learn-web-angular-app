@@ -102,14 +102,14 @@ export class UserService {
     this.selectedTechnologies =
       technologies || this.DEFAULT_SELECTED_TECHNOLOGIES;
     localStorage.setItem(
-      "userTechnologies",
+      "selectedTechnologies",
       JSON.stringify(this.selectedTechnologies)
     );
   }
 
   // Метод для отримання обраних технологій користувача з локального сховища
   getSelectedTechnologies(): string[] {
-    const technologiesJson = localStorage.getItem("userTechnologies");
+    const technologiesJson = localStorage.getItem("selectedTechnologies");
     return technologiesJson
       ? JSON.parse(technologiesJson)
       : this.DEFAULT_SELECTED_TECHNOLOGIES;

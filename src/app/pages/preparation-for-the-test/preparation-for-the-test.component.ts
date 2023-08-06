@@ -36,23 +36,14 @@ export class PreparationForTheTestComponent {
     this.userFraction = userService.getFraction();
 
     // Set tech
-    this.renderListOfTech("Saved");
+    this.renderListOfTech("Recomendet");
   }
 
   renderListOfTech(tech: string) {
-    // if (tech === "Saved") {
-    //   if (this.techService.getSelectedTech().length !== 0) {
-    //     this.techToRender = this.techService.getTechAsEntitys(
-    //       this.selectedTech
-    //     );
-    //   } else {
-    //     this.renderListOfTech("Recomendet");
-    //   }
-    // }
     if (tech === "Recomendet") {
-      this.sortedTechnologies = this.techService.getRecomendetTechByTitle(this.userFraction);
-
-      console.log('this.sortedTechnologies :>> ', this.sortedTechnologies);
+      this.sortedTechnologies = this.techService.getRecomendetTechByTitle(
+        this.userFraction
+      );
 
       this.techToRender = this.techService.getTechAsEntitys(
         this.sortedTechnologies
@@ -72,5 +63,17 @@ export class PreparationForTheTestComponent {
     }
 
     return false;
+  }
+
+  toggleSelectTech(title: string, isSelect: boolean) {
+    if (isSelect) {
+      this.techService.deleteSelectedTech(title);
+    } else {
+      this.techService.pushSelectedTech(title);
+    }
+
+    this.selectedTech = this.techService.getSelectedTech();
+
+    this.sortedTechnologies = this.techService.getSelectedTech();
   }
 }

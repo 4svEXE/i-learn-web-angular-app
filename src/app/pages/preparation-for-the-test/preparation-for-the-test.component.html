@@ -5,8 +5,8 @@
     </h2>
   </div>
 
-  <div class=" ui-box items-start ">
-    <div class="w-full flex justify-between mt-5  text-black dark:text-white">
+  <div class="ui-box items-start">
+    <div class="w-full flex justify-between mt-5 text-black dark:text-white">
       <a
         (click)="renderListOfTech('Recomendet')"
         class="nav-button"
@@ -26,7 +26,8 @@
       <button
         *ngFor="let tech of techToRender"
         class="ui-secondary-button bg-white dark:bg-contrast"
-        [disabled]="!checkIsSelectedTech(tech.title)"
+        [class.disabled]="!checkIsSelectedTech(tech.title)"
+        (click)="toggleSelectTech(tech.title, checkIsSelectedTech(tech.title))"
       >
         <div class="content">
           <img src="assets/test.svg" alt="" />
@@ -34,7 +35,5 @@
         </div>
       </button>
     </div>
-
-
   </div>
 </div>

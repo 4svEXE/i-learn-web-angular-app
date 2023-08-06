@@ -34,7 +34,7 @@ export class TechnologiesService {
   // push one item to arr
   pushSelectedTech(tech: string) {
     this.selectedTechnologies.push(tech);
-    this.setSelectedTech(this.getSelectedTech());
+    this.setSelectedTech(this.selectedTechnologies);
   }
 
   deleteSelectedTech(tech: string) {
@@ -42,7 +42,7 @@ export class TechnologiesService {
       (e) => e !== tech
     );
 
-    this.setSelectedTech(this.getSelectedTech());
+    this.setSelectedTech(this.selectedTechnologies);
   }
 
   getTechAsEntitys(techList: string[]): any[] {

@@ -24,6 +24,7 @@ export class AccountComponent {
     this.user.name = this.userService.getName();
     this.user.avatar = this.userService.getAvatar();
     this.user.dateOfLogin = this.userService.getDateOfLogin();
+    // ...................
     this.user.selectedTechnologies = this.userService.getSelectedTechnologies();
 
     this.userService.userFraction$.subscribe((fraction: any) => {
