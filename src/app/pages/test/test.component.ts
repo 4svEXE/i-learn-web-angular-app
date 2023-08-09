@@ -28,7 +28,6 @@ export class TestComponent {
   currentQuestion: number = 0;
   questionResults: QuestionResultInterface[] = [];
 
-
   randomizedAnswers!: AnswerInterface[];
   currentUserAnswer!: QuestionResultInterface;
 
@@ -52,9 +51,20 @@ export class TestComponent {
     this.randomizedAnswers = this.getRandomizedAnswers();
   }
 
-  isActiveProgressCircle(i: number){
-    console.log('i :>> ', i, this.currentQuestion);
-    return this.currentQuestion === i
+  isActiveProgressCircle(i: number) {
+    return this.currentQuestion === i;
+  }
+
+  isRightAnswer(i: number) {
+    const userAnswer = this.questionResults[i]?.userAnswer || undefined;
+
+    if (userAnswer === undefined) return "";
+
+    if (userAnswer.isCorrect) {
+      return "right";
+    } else {
+      return "wrong";
+    }
 
 
   }

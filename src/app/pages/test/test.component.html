@@ -1,13 +1,15 @@
 <div class="ui-container justify-between h-full" id="account-page">
   <div class="flex flex-col">
     <div class="progress-bar">
-      <div class="progress-circle right"></div>
+      <!-- <div class="progress-circle right"></div>
       <div class="progress-circle wrong"></div>
-      <div class="progress-circle active"></div>
+      <div class="progress-circle active"></div> -->
       <div
-        *ngFor="let i of filteredQuestions"
-        class="progress-circle"
-        [class.right]="answerIsCorrect(questionResults[i])"
+        *ngFor="let question of filteredQuestions; let i = index"
+
+        [classList]="'progress-circle '+ isRightAnswer(i)"
+
+        [class.active]="isActiveProgressCircle(i)"
       ></div>
     </div>
 
@@ -22,11 +24,14 @@
     </div>
 
     <div
-    *ngFor="let index of [1,2,3,4]"
+      *ngFor="let amswer of randomizedAnswers"
       class="answers flex flex-col mt-5"
     >
-      <button class="ui-pirmory-button big-button normal-text my-1">
-        {{filteredQuestions[currentQuestion].answers[index].title}}
+      <button
+        (click)="setAnswer(amswer.title, amswer.isCorrect)"
+        class="ui-pirmory-button big-button normal-text my-1"
+      >
+        {{amswer.title}}
       </button>
     </div>
   </div>

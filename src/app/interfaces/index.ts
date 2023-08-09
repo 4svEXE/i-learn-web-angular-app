@@ -8,15 +8,20 @@ export interface UserInterface {
 }
 
 export interface QuestionInterface {
-  id: string,
-  title: string,
-  answers: AnswerInterface[],
-  technology: string,
-  level: string,
-  image: string,
+  id: string;
+  title: string;
+  answers: AnswerInterface[];
+  technology: string;
+  level: string;
+  image: string;
 }
 
 export interface AnswerInterface {
-  title: string,
-  isCorrect: boolean
+  title: string;
+  isCorrect: boolean;
+}
+
+export interface QuestionResultInterface {
+  questionID: string;
+  userAnswer: AnswerInterface;
 }
