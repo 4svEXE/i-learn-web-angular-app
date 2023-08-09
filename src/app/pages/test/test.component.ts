@@ -1,6 +1,10 @@
 import { Component } from "@angular/core";
 import { Questions } from "./../../db/Questions";
-import { QuestionInterface, AnswerInterface } from "src/app/interfaces";
+import {
+  QuestionResultInterface,
+  QuestionInterface,
+  AnswerInterface,
+} from "src/app/interfaces";
 import { UserService } from "./../../shared/services/user.service";
 import { SettingsService } from "src/app/shared/services/settings.service";
 import { TestsFilterService } from "src/app/shared/services/tests-filter.service";
@@ -22,8 +26,10 @@ export class TestComponent {
   filteredQuestions!: any[];
 
   currentQuestion: number = 0;
-  questionResults!: QuestionResultInterface[];
+  questionResults: QuestionResultInterface[] = [];
 
+
+  randomizedAnswers!: AnswerInterface[];
   currentUserAnswer!: QuestionResultInterface;
 
   constructor(
@@ -41,58 +47,55 @@ export class TestComponent {
       this.config
     );
 
-    // this.setEmptyQuestion()
+    this.currentUserAnswer = this.questionsService.getEmptyQuestion();
+
+    this.randomizedAnswers = this.getRandomizedAnswers();
   }
 
-  randomizeAnswers(answers: AnswerInterface[]): AnswerInterface[] {
-    console.log('answers :>> ', answers);
-    return answers.sort((a, b) => Math.random() - 0.5);
+  isActiveProgressCircle(i: number){
+    console.log('i :>> ', i, this.currentQuestion);
+    return this.currentQuestion === i
+
+
+  }
+
+  getRandomizedAnswers(): AnswerInterface[] {
+    let answers = this.filteredQuestions[this.currentQuestion].answers;
+    return answers.sort(() => Math.random() - 0.5);
   }
 
   saveTestResults() {}
 
-  setAnswer(id: string, title: string, isCorrect: boolean) {
+  setAnswer(title: string, isCorrect: boolean) {
     // let selectedQuestion = this.questionsService.getQuestion(id)
 
-    this.currentUserAnswer.questionID = id;
+    this.currentUserAnswer.questionID = this.filteredQuestions[
+      this.currentQuestion
+    ].id;
     this.currentUserAnswer.userAnswer.title = title;
     this.currentUserAnswer.userAnswer.isCorrect = isCorrect;
   }
 
-  saveQuestionResult() {
+  saveAnswerToAnswers() {
     this.questionResults.push(this.currentUserAnswer);
   }
 
-  answerIsCorrect(answers: QuestionResultInterface): boolean {
-    return answers?.userAnswer?.isCorrect || false;
-  }
-
-  setEmptyQuestion(){
-    // this.currentUserAnswer = JSON.parse(
-    //   JSON.stringify(emptyAnswer)
-    // );
-  }
-
   nextQuestion() {
-    if (this.currentQuestion === this.config.quantityQuestions - 1) {
-      return this.saveTestResults();
-    }
+    const isEnd = this.questionsService.nextQuestionHandler(
+      this.currentQuestion,
+      this.config
+    );
+
+    this.saveAnswerToAnswers();
 
     this.currentQuestion++;
-    // this.saveQuestionResult();
-    // this.setEmptyQuestion()
+
+    this.currentUserAnswer = this.questionsService.getEmptyQuestion();
+
+    this.randomizedAnswers = this.getRandomizedAnswers();
+
+    // console.log('this.questionResults :>> ', this.questionResults);
+
+    if (isEnd) this.saveTestResults();
   }
 }
-
-interface QuestionResultInterface {
-  questionID: string;
-  userAnswer: AnswerInterface;
-}
-
-const emptyAnswer = {
-  questionID: "0",
-  userAnswer: {
-    title: "string",
-    isCorrect: false,
-  },
-};
