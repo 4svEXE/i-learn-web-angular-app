@@ -1,0 +1,40 @@
+@import "../../../assets/styles/variables.scss";
+
+.progress-bar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+
+  .progress-circle {
+    width: 15px;
+    height: 15px;
+    background-color: $color-3;
+    border: 2px solid #000;
+    border-radius: 50%;
+    opacity: 0.5;
+
+    &.active {
+      opacity: 1;
+    }
+
+    &.right {
+      opacity: 1;
+      background-color: green;
+    }
+
+    &.wrong {
+      opacity: 1;
+      background-color: red;
+    }
+  }
+}
+
+.image-box {
+  img {
+    width: 100%;
+  }
+}

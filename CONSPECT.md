@@ -42,7 +42,7 @@ angular-cli-ghpages --dir=dist
 
 ## Router
 <router-outlet></router-outlet>
-routerLink="/register" 
+routerLink="/register"
 [routerLinkActive]="['active']"
 
 // Deploy
@@ -83,4 +83,5 @@ ng serve --configuration=ua
 
 ## Upload
 ng build --configuration production --localize --base-href "https://4svEXE.github.io/i-learn-web-angular-app/"
+
 angular-cli-ghpages --dir=dist/

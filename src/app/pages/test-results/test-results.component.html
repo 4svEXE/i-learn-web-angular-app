@@ -1,1 +1,53 @@
-<p>test-results works!</p>
+<div class="ui-container justify-between h-full" id="account-page">
+  <div class="flex flex-col">
+    <div class="progress-bar">
+      <div class="progress-circle right"></div>
+      <div class="progress-circle wrong"></div>
+      <div class="progress-circle active"></div>
+      <div
+        *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]"
+        class="progress-circle"
+      ></div>
+    </div>
+
+    <div class="shadow-box w-full bg-white dark:bg-contrast">
+      <h2>Question text:</h2>
+
+      <div class="text-black">
+        fsfsdfsdfs d f j jhf hjdsshfjh fllsdfj dsjf jsdhf
+      </div>
+    </div>
+
+    <div class="image-box">
+      <img src="" />
+    </div>
+
+    <div class="answer flex flex-col mt-5">
+      <div class="shadow-box w-full bg-white dark:bg-contrast">
+        <h2>Ansever:</h2>
+        <div class="text-black"></div>
+      </div>
+    </div>
+
+    <div class="answer flex flex-col mt-5">
+      <div class="shadow-box w-full bg-white dark:bg-contrast">
+        <h2>Links:</h2>
+        <div class="text-black"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <button class="ui-pirmory-button md-button m-10" disabled>
+      🠈
+    </button>
+
+    <button class="ui-pirmory-button md-button normal-text my-1" i18n>
+      Close a test
+    </button>
+
+    <button class="ui-pirmory-button md-button m-10">
+      🠊
+    </button>
+  </div>
+</div>

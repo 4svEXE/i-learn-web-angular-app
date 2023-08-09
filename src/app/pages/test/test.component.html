@@ -1,1 +1,41 @@
-<p>test works!</p>
+<div class="ui-container justify-between h-full" id="account-page">
+  <div class="flex flex-col">
+    <div class="progress-bar">
+      <div class="progress-circle right"></div>
+      <div class="progress-circle wrong"></div>
+      <div class="progress-circle active"></div>
+      <div
+        *ngFor="let i of filteredQuestions"
+        class="progress-circle"
+        [class.right]="answerIsCorrect(questionResults[i])"
+      ></div>
+    </div>
+
+    <div class="shadow-box w-full bg-white dark:bg-contrast">
+      <div class="question text-black">
+        Question text {{filteredQuestions[currentQuestion].title}}
+      </div>
+    </div>
+
+    <div class="image-box">
+      <img src="" />
+    </div>
+
+    <div
+    *ngFor="let index of [1,2,3,4]"
+      class="answers flex flex-col mt-5"
+    >
+      <button class="ui-pirmory-button big-button normal-text my-1">
+        {{filteredQuestions[currentQuestion].answers[index].title}}
+      </button>
+    </div>
+  </div>
+
+  <button
+    (click)="nextQuestion()"
+    class="ui-pirmory-button big-button normal-text my-1"
+    i18n
+  >
+    Next
+  </button>
+</div>

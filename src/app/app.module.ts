@@ -19,6 +19,7 @@ import { BreadcrumpsComponent } from "./layout/header/breadcrumps/breadcrumps.co
 import { GeneralSettingsComponent } from './pages/settings/general-settings/general-settings.component';
 import { TestSettingsComponent } from './pages/settings/test-settings/test-settings.component';
 import { SelectFractionComponent } from './layout/select-fraction/select-fraction.component';
+import { ToggleFullScreenComponent } from './layout/toggle-full-screen/toggle-full-screen.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SelectFractionComponent } from './layout/select-fraction/select-fractio
     BreadcrumpsComponent,
     GeneralSettingsComponent,
     TestSettingsComponent,
-    SelectFractionComponent
+    SelectFractionComponent,
+    ToggleFullScreenComponent
   ],
   imports: [BrowserModule, AppRoutingModule, IvyCarouselModule],
   providers: [],
