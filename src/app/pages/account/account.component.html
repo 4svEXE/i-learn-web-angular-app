@@ -42,12 +42,12 @@
 
   <div class="statistics flex flex-col text-black dark:text-white mt-5">
     <span i18n>Дата входу: <b> {{user.dateOfLogin}}</b></span>
-    <span i18n>Тестів пройдено: <b> 12</b></span>
+    <span i18n>Тестів пройдено: <b> {{allTestsResults.length}}</b></span>
     <span>Результати тестів:</span>
 
     <div class="history-box">
       <div
-        *ngFor="let i of [1,2,3,4,5,1,1,1,1,1,1,1,1,1]"
+        *ngFor="let test of allTestsResults"
         class="w-full grid grid-cols-7 shadow-box sm-box mb-2"
       >
         <div style="border-left: 3px solid blue;">Junior</div>

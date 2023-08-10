@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
 import { UserService } from "src/app/shared/services/user.service";
-import { UserInterface } from "./../../interfaces/";
+import { UserInterface, QuestionResultInterface } from "./../../interfaces/";
 import { User, UserAvatars } from "src/app/db";
 import { SelectFractionService } from "src/app/shared/services/select-fraction.service";
+import { TestResultsService } from "src/app/shared/services/test-results.service";
 
 @Component({
   selector: "app-account",
@@ -14,17 +15,22 @@ export class AccountComponent {
 
   user: UserInterface = User;
   userAvatars: string[] = UserAvatars;
+  
+  //////////////////////////////////////////////////////////////////////
+  //  testStatystic 
+  allTestsResults: number[] = [1,2,3,4,5]; //QuestionResultInterface[];
 
   isOpenAvatarsBox = false;
 
   constructor(
     private userService: UserService,
+    private testResultsService: TestResultsService,
     private selectFractionService: SelectFractionService
   ) {
     this.user.name = this.userService.getName();
     this.user.avatar = this.userService.getAvatar();
     this.user.dateOfLogin = this.userService.getDateOfLogin();
-    // ...................
+
     this.user.selectedTechnologies = this.userService.getSelectedTechnologies();
 
     this.userService.userFraction$.subscribe((fraction: any) => {
@@ -32,6 +38,7 @@ export class AccountComponent {
     });
 
     this.userService.setFraction(this.userService.getFraction());
+    // this.allTestsResults = this.testResultsService.getAllTestsResults();
   }
 
   resetUserFraction() {

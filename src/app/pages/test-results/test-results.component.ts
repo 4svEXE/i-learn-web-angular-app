@@ -112,5 +112,3 @@ export class TestResultsComponent {
     this.setUserAnswer(this.currentQuestionId);
   }
 }
-
-// get
