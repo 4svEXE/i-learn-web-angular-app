@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Router } from '@angular/router';
+
 import { Questions } from "./../../db/Questions";
 import {
   QuestionResultInterface,
@@ -9,6 +11,8 @@ import { UserService } from "./../../shared/services/user.service";
 import { SettingsService } from "src/app/shared/services/settings.service";
 import { TestsFilterService } from "src/app/shared/services/tests-filter.service";
 import { QuestionsService } from "src/app/shared/services/questions.service";
+import { TestResultsService } from "src/app/shared/services/test-results.service";
+
 
 @Component({
   selector: "app-test",
@@ -32,10 +36,12 @@ export class TestComponent {
   currentUserAnswer!: QuestionResultInterface;
 
   constructor(
+    private router: Router,
     private userService: UserService,
     private settingsService: SettingsService,
     private testsFilterService: TestsFilterService,
-    private questionsService: QuestionsService
+    private questionsService: QuestionsService,
+    private testResultsService: TestResultsService
   ) {
     this.config.selectedTech = userService.getSelectedTechnologies();
     this.config.quantityQuestions = settingsService.getQuantityOfQuestions();
@@ -65,8 +71,11 @@ export class TestComponent {
     } else {
       return "wrong";
     }
+  }
 
-
+  redirectToTestResults() {
+    const allResults = this.testResultsService.getAllTestsResults()
+    this.router.navigate(['home/test-result/', allResults.length - 1]);
   }
 
   getRandomizedAnswers(): AnswerInterface[] {
@@ -74,10 +83,14 @@ export class TestComponent {
     return answers.sort(() => Math.random() - 0.5);
   }
 
-  saveTestResults() {}
+  saveTestResults() {
+    this.testResultsService.setResults(this.questionResults);
+
+    this.redirectToTestResults()
+  }
 
   setAnswer(title: string, isCorrect: boolean) {
-    // let selectedQuestion = this.questionsService.getQuestion(id)
+    
 
     this.currentUserAnswer.questionID = this.filteredQuestions[
       this.currentQuestion
@@ -88,6 +101,8 @@ export class TestComponent {
 
   saveAnswerToAnswers() {
     this.questionResults.push(this.currentUserAnswer);
+
+    
   }
 
   nextQuestion() {
@@ -98,14 +113,16 @@ export class TestComponent {
 
     this.saveAnswerToAnswers();
 
-    this.currentQuestion++;
-
     this.currentUserAnswer = this.questionsService.getEmptyQuestion();
 
+    
+    if (!isEnd) {
+      console.log('isEnd :>> ', isEnd);
+      this.saveTestResults();
+    }
+    
+    this.currentQuestion++;
+    
     this.randomizedAnswers = this.getRandomizedAnswers();
-
-    // console.log('this.questionResults :>> ', this.questionResults);
-
-    if (isEnd) this.saveTestResults();
   }
 }

@@ -20,7 +20,19 @@ export class QuestionsService {
     })[0];
   }
 
-  
+  getCorrectAnswer(id: string) {
+    let question = this.questions.filter((question) => {
+      return question.id === id;
+    })[0];
+
+    for (let i = 0; i < question.answers.length; i++) {
+      if (question.answers[i].isCorrect) {
+        return question.answers[i].title;
+      }
+    }
+
+    return "Error";
+  }
 
   answerIsCorrect(answers: QuestionResultInterface): boolean {
     return answers?.userAnswer?.isCorrect || false;

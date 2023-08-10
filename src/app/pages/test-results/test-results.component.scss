@@ -17,9 +17,7 @@
     border-radius: 50%;
     opacity: 0.5;
 
-    &.active {
-      opacity: 1;
-    }
+    
 
     &.right {
       opacity: 1;
@@ -29,6 +27,12 @@
     &.wrong {
       opacity: 1;
       background-color: red;
+    }
+
+    &.active {
+      opacity: 1;
+      background-color: $color-3;
+      transform: scale(1.1);
     }
   }
 }

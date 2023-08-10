@@ -1,12 +1,10 @@
 <div class="ui-container justify-between h-full" id="account-page">
   <div class="flex flex-col">
     <div class="progress-bar">
-      <div class="progress-circle right"></div>
-      <div class="progress-circle wrong"></div>
-      <div class="progress-circle active"></div>
       <div
-        *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]"
-        class="progress-circle"
+        *ngFor="let qwestion of questionResults; let i = index"
+        [classList]="'progress-circle '+ isRightAnswer(i)"
+        [class.active]="isActiveProgressCircle(i)"
       ></div>
     </div>
 
@@ -14,7 +12,7 @@
       <h2>Question text:</h2>
 
       <div class="text-black">
-        fsfsdfsdfs d f j jhf hjdsshfjh fllsdfj dsjf jsdhf
+        {{selectedQuestion.title}}
       </div>
     </div>
 
@@ -24,30 +22,52 @@
 
     <div class="answer flex flex-col mt-5">
       <div class="shadow-box w-full bg-white dark:bg-contrast">
-        <h2>Ansever:</h2>
-        <div class="text-black"></div>
+        <h2 i18n>Your ansever:</h2>
+        <div i18n class="text-black" [class.hidden]="userAnswer.isCorrect">
+          {{userAnswer.title}}
+        </div>
+        <div i18n class="text-black">
+          Your answer is {{userAnswer.isCorrect? 'correct': 'not correct'}}
+        </div>
       </div>
     </div>
 
     <div class="answer flex flex-col mt-5">
       <div class="shadow-box w-full bg-white dark:bg-contrast">
-        <h2>Links:</h2>
+        <h2 i18n>Correct ansver:</h2>
+        <div class="text-black">
+          {{correctAnswer}}
+        </div>
+      </div>
+    </div>
+
+    <div class="answer flex flex-col mt-5">
+      <div class="shadow-box w-full bg-white dark:bg-contrast">
+        <h2>Useful links:</h2>
         <div class="text-black"></div>
       </div>
     </div>
   </div>
 
   <div class="flex items-center justify-center">
-    <button class="ui-pirmory-button md-button m-10" disabled>
-      🠈
+    <button
+      (click)="moveQwestion('prew')"
+      [disabled]="isDisabled('prew')"
+      class="ui-pirmory-button md-button m-10"
+    >
+      ←
     </button>
 
     <button class="ui-pirmory-button md-button normal-text my-1" i18n>
-      Close a test
+      Save and exit
     </button>
 
-    <button class="ui-pirmory-button md-button m-10">
-      🠊
+    <button
+      (click)="moveQwestion('next')"
+      [disabled]="isDisabled('next')"
+      class="ui-pirmory-button md-button m-10"
+    >
+      →
     </button>
   </div>
 </div>

@@ -1,9 +1,6 @@
 <div class="ui-container justify-between h-full" id="account-page">
   <div class="flex flex-col">
     <div class="progress-bar">
-      <!-- <div class="progress-circle right"></div>
-      <div class="progress-circle wrong"></div>
-      <div class="progress-circle active"></div> -->
       <div
         *ngFor="let question of filteredQuestions; let i = index"
 
@@ -15,12 +12,12 @@
 
     <div class="shadow-box w-full bg-white dark:bg-contrast">
       <div class="question text-black">
-        Question text {{filteredQuestions[currentQuestion].title}}
+        {{filteredQuestions[currentQuestion].title}}
       </div>
     </div>
 
     <div class="image-box">
-      <img src="" />
+      <img src="{{filteredQuestions[currentQuestion].image}}" />
     </div>
 
     <div
